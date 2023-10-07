@@ -1,0 +1,21 @@
+-> const 
+  Obiekty z tym modyfikatorem nie mogą być zmieniane w programie
+  const float pi = 3.14159; //inicjalizacja pi = 10; //błąd – próba przypisania
+
+-> register
+  register to specjalne słowo kluczowe w języku C, które sugeruje kompilatorowi, 
+  aby przechowywał zmienną w rejestrze procesora, jeśli to możliwe. Jednakże, 
+  z chwilą pojawienia się nowszych kompilatorów, takie sugestie są zazwyczaj ignorowane, 
+  ponieważ kompilatory są w stanie samodzielnie zoptymalizować alokację pamięci dla zmiennych
+
+-> volatile 
+  Słowo kluczowe volatile w języku C/C++ informuje kompilator, że wartość zmiennej może być 
+  zmieniana przez czynniki spoza kontrolowanego przez program, co oznacza, że zmienna może być 
+  modyfikowana przez procesy równoległe, przerwania lub inne zewnętrzne źródła.
+ 
+  volatile int status_register; // Zmienna status_register może być modyfikowana przez zewnętrzne czynniki
+
+-> mutable 
+  mutable to specjalne słowo kluczowe w C++, które można użyć w kontekście deklaracji składowej klasy (członka),
+  aby umożliwić jej modyfikację nawet w obiektach, które są oznaczone jako const.
+
