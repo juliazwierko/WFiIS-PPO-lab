@@ -19,3 +19,10 @@
   mutable to specjalne słowo kluczowe w C++, które można użyć w kontekście deklaracji składowej klasy (członka),
   aby umożliwić jej modyfikację nawet w obiektach, które są oznaczone jako const.
 
+-> auto i static 
+  Obiekty globalne są typu static (statyczne), a
+  lokalne typu auto (automatyczne)
+  ◼ Do zmiennych automatycznych należy najpierw coś zapisać, a dopiero potem czytać (nie są zerowane)
+  ◼ Zmienne statyczne są przed uruchomieniem programu zerowane
+  ◼ Obiekty lokalne można deklarować jako statyczne (np. zapamiętanie wartości zmienne przy kolejnym wywołaniu funkcji)
+  (Przykład cpp_2.5)
