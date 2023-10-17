@@ -1,38 +1,38 @@
 #include "StudentList.h"
-using namespace std;
 
-TStudent *InitTStudent(){
-    TStudent* stud = new TStudent;
+TStudent* InitTStudent(){
+    TStudent *stud = new TStudent;
     stud->next = NULL;
     return stud;
 }
 
-void show(TStudent*head){
+void show(TStudent *head){
     TStudent *temp = head;
-    cout << "Aktualny stan listy:" << endl;
-    if(!head){
-        cout << "Lista jest pusta" << endl;
+    std::cout << "Aktualny stan listy:" << std::endl;
+    if(head == NULL){
+        std::cout << "Lista jest pusta" << std::endl;
     }
     else{
-        for(;temp;temp=temp->next){
-            cout << temp-> data<<endl;
+        while(temp != NULL){
+            std::cout << temp->data << std::endl;
+            temp = temp->next;
         }
-        cout << endl;
+    std::cout << std::endl;
     }
 }
 
 void push_front(TStudent **head, int value){
     TStudent *temp = InitTStudent();
-    temp->next = *head;
     temp->data = value;
-    (*head)=temp;
+    temp->next = *(head);
+    *(head) = temp;
 }
 
 void clear(TStudent **head){
-    TStudent *temp = *head;
-    while((*head)!=NULL){
-        temp=*head;
-        (*head)=(*head)->next;
+    TStudent *temp = *(head);
+    while(*head){
+        temp = (*head);
+        (*head) = (*head)->next;
         delete temp;
     }
 }
