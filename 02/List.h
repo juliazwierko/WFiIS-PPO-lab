@@ -39,10 +39,9 @@ void init(slist * list);
  * @return funkcja typu void, dlatego nic nie zwraca. 
  * 
 */
-
-
-
 void push_front(slist * list, char c);
+
+
 
 /** @brief Przypisanie podanego char'a na koniec listy 
  * 
