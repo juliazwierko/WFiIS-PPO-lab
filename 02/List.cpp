@@ -9,6 +9,14 @@ void init(slist * list)
   list->head = NULL;
 }
 
+
+void push_front(slist * list, char c){
+  slistEl *element = new slistEl;
+  element->data = c;
+  element->next = list->head;
+  list->head = element;
+}
+
 void push_back(slist * list, char c)
 {
   slistEl * p, * e;
@@ -36,4 +44,23 @@ slistEl * find(slist * list, char c)
   }
   
   return p;
+}
+
+void printl(slist * list){
+  slistEl *temp = list->head;
+  cout << "Moja lista: <";
+  if(!temp){
+    cout << "Lista jest pusta>";
+  }
+  else{
+    while(temp){
+      cout << temp->data;
+      slistEl *temp2 = temp->next;
+      delete temp;
+      temp = temp2;
+    }
+    list->head = NULL;
+    cout << ">";
+  }
+  cout << endl;
 }
