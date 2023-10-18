@@ -41,10 +41,10 @@ using namespace std;
 int main(int argc, char** argv) 
 {
   slist List;
-  slistEl* p; 
+  slistEl* p;
 	
   init(&List);
-
+	
   push_front(&List, 'a');
 
   push_back(&List, ' ');
