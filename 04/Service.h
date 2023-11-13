@@ -1,31 +1,34 @@
-#pragma once 
 #include "Car.h"
-#include <iostream>
-#include <cmath> 
-using namespace std;
 
-//klasa service gdzie tworzymy zmiany w samochodzie
-class Service{
+class Service {
 public:
-    void Test(Car *samochod, double a){
-        cout << endl << "#############################################################"<<endl;
-        cout << "### Test serwisowy ###" << endl << endl;
-        cout << "1. Tankowanie do pelna:";
-        (*samochod).SetState(false);
-        (*samochod).Refuel(a);
+    /** @brief Sprawdzenie kopi pojazdu
+    *
+    * Test serwisowy dla skopiowanego pojazdu
+    *
+    * @param[in] car pojazd
+    * @param[in] distance dystans do przejechania
+    * @return funkcja nic nie zwraca
+    */
+    void TestCopy(Car car, int distance);
 
-        cout << "2. Jazda testowa: 10 km:";
-        (*samochod).Start();
-
-        (*samochod).Drive(a);
-
-        (*samochod).Stop();
-
-        cout << endl << "### Koniec testu serwisowego ###" << endl;
-        cout << "#############################################################" << endl;
-    }
-    //
-    void TestCopy(Car samochod, double a){
-
-    }
+    /** @brief Sprawdzenie pojazdu
+    *
+    * Test serwisowy dla pojazdu
+    *
+    * @param[in] pcar wskaznik do pojazdu
+    * @param[in] distance dystans do przejechania
+    * @return funkcja nic nie zwraca
+    */
+    void Test(Car * pcar, int distance);
 };
+
+/** @brief Sprawdzenie pojazdu
+*
+* Test serwisowy dla pojazdu
+*
+* @param[in] pcar wskaznik do pojazdu
+* @param[in] distance dystans do przejechania
+* @return funkcja nic nie zwraca
+*/
+void TestCar(Car *pcar, int distance);
