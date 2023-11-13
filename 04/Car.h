@@ -3,40 +3,97 @@
 #include <iostream> 
 #include <cmath> 
 using namespace std;
-
-// to jest klasa samochod   
+  
 class Car{
 public:
-    //ustawienie numera id samochodu (a - index naszego samochodu)
+    /** @brief Ustawienie ID samochodu
+    *
+    * Funkcja ustawia numer ID samochodu.
+    *
+    * @param[in] a to numer identyfikacyjny 
+    * @return funkcja nic nie zwraca
+    */
     void SetID(int a);
-    //ustawienie dotyczace wlaczenia i wylaczenia samochodu (a - znaczenie false(wyl)/true(wl))
+    /**
+     * @brief Ustawienie statusu samochodu
+     *
+     * Funckja ustawia status samochodu
+     * 
+     * @param[in] a to status samochodu (jest wlaczony czy wylaczony)
+     * @return funckja nic nie zwraca 
+     */
     void SetState(bool a);
-    //ustaweinie pojemnosci baku (a - pojemnosc baku)
+    /**
+     * @brief Ustawienie max ilosci paliwa w baku
+     *
+     * Funckja ustawia max ilsoc paliwa w baku
+     * 
+     * @param[in] a - waartosc ile max paliwa moze wmiescic sie w baku
+     * @return funkcja nic nie zwraca 
+     */
     void SetTankCapacity(double a);
-    //ustawienie znaczenia sredniego spalenia (a - wartosc tego znaczenia)
+    /**
+     * @brief Ustawienie ile paliwa bedzie sie wykorzystywalo na 100 km
+     * 
+     * Funkcja ustawia ile ile paliwa bedzie sie wykorzystywalo na 100 km
+     *
+     * @param[in] a - ilsoc uzywania paliwa na 100 km
+     */
     void SetConsumption(double a);
-    //ustawienie ilosci paliwa w baku (a - ilosc paliwa)
+    /**
+     * @brief Utawienie ilosci paliwa w baku
+     *
+     * Funkcja ustawia ile paliwa jest przechowywano w baku 
+     * 
+     * @param[in] a - ilosc paliwa 
+     */
     void SetFuel(double a);
-    //wypisanie wszystkich cech samochodu
+    /**
+     * @brief Reprezentacja cech samochodu
+     * 
+     * Funkcja wyswietla wszystkie charakterestyki samochodu
+     *
+     * @return funkcja nic nie zwraca
+     */
     void Presentation();
-    //line 54 starts here:
-    //Jazda samochodu
-    void Drive(int a);
-    //Wlaczenie silnika 
+    /**
+     * @brief Jazda samochodu
+     * 
+     * Funkcja rozpoczyna jazde samochodu 
+     *
+     * @param[in] distance - ilosc km do przejechania
+     * @return funkcja nic nie zwraca 
+     */
+    void Drive(int distance);
+    /**
+     * @brief Dodanie paliwa do samochodu
+     * 
+     * Funkcja dodaje paliwo do samochodu 
+     *
+     * @param[in] fuel - ilosc paliwa do dodawania
+     * @return funkcja nic nie zwraca 
+     */
+    void Refuel(int fuel);
+    /**
+     * @brief Uruchomienie silnika 
+     * 
+     * Funckja uruchamia silnik samochodu
+     *
+     * @return funckja nic nie zwraca 
+     */
     void Start();
-    //Dodawanie ilosci paliwa (a - ilosc paliwa)
-    void Refuel(int a);
-    //Spynienie autka (wylaczenie Z ustawieniem na false)
+    /**
+     * @brief Wylaczenie silnika 
+     * 
+     * Funckja wylacza silnik samochodu
+     *
+     * @return funckja nic nie zwraca 
+     */
     void Stop();
 private:
-    //numer samochodu
     int _id;
-    //stan wlaczenia
     bool _state;
-    //pojemnosc
     double _tank_capacity;
-    //zatrtaty podczas jazdy
     double _consumption;
-    //paliwo
     double _fuel;
 };
