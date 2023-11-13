@@ -18,7 +18,7 @@ void Car::SetFuel(double a){
 }
 void Car::Presentation(){
     cout<< endl << "### Prezentacja ###" << endl;
-    cout<< "Identyfikator samochodu:" << _id << endl;
+    cout<< "Identyfikator samochodu: " << _id << endl;
     if(_state == 1){
         cout << "Samochod wlaczony";
     }
@@ -27,41 +27,69 @@ void Car::Presentation(){
     }
     cout << "Pojemnosc baku wynosi " << _tank_capacity << " litrow" << endl;
     cout << "Srednie spalanie wynosi " << _consumption << " litrow / 100 km" << endl;
-    cout << "W baku jest " << _fuel << " litrow paliwa" << endl;
+    cout << "W baku jest " << _fuel << " litrow paliwa";
 }
 //////////////////////////////////////////////////////////////////////////////// line 54
-void Car::Drive(int a){
-    cout << endl <<"### Jazda ###" << endl;
-    if(a<0){
-        cout << "BLAD: Niepoprawny dystans" << endl; 
+void Car::Drive(int distance){
+    cout << "\n\n### Jazda ###\n";
+
+    if (distance < 0){
+        cout << "BLAD: Niepoprawny dystans\n";
+        return; 
     }
-    if(a>=0 && _state == false){
-        cout << "BLAD: Wlacz silnik" << endl;
+
+    if (!_state){
+        cout << "BLAD: Wlacz silnik\n";
+        return;
     }
-    if (a>=0 && _state == true){
-        cout << "Przejechales " << a << "km" << endl;   
+
+    int maxDistance = _fuel / _consumption * 100;
+
+    if (distance >= maxDistance){
+        distance = maxDistance;
     }
+
+    _fuel -= distance * _consumption / 100;
+    cout << "Przejechales " << distance << " km";
 }
+
+void Car::Refuel(int fuel){
+    cout << "\n\n### Tankowanie ###\n";
+
+    if (_state){
+        cout << "BLAD: Wylacz samochod przed tankowaniem\n";
+        return;
+    }
+
+    if (fuel < 0){
+        cout << "BLAD: Niepoprawna ilosc paliwa do zatankowania\n";
+        return;
+    }
+
+    float maxRefuel = _tank_capacity - _fuel;
+    float fuelToTank = fuel;
+
+    if (fuel > maxRefuel){
+        fuelToTank = maxRefuel;
+    }
+
+    _fuel += fuelToTank;
+    cout << "Zatankowales " << fuelToTank << " litrow";
+}
+
 void Car::Start(){
-    cout << endl <<"### Uruchomienie samochodu ###" << endl;
-    _state = true;
+    cout << "\n\n### Uruchomienie samochodu ###" << endl;
+
+    if(_fuel <= 0){
+       cout << "BLAD: Brak paliwa, zatankuj\n"; 
+       return;
+    }
+    SetState(true);
     cout << "Silnik zostal wlaczony" << endl;
 }
-void Car::Refuel(int a){
-    cout << endl << "### Tankowanie ###" << endl;
-    if(_state == true){
-        cout << "BLAD: Wylacz samochod przed tankowaniem" << endl;
-    }
-    else if(a<0){
-        cout << "BLAD: Niepoprawna ilosc paliwa do zatankowania" << endl;
-    }
-    else{
-        _tank_capacity += a;
-        cout << "Zatankowales " << a << " litrow" << endl;
-    }
-}
+
 void Car::Stop(){
-    cout << endl << "### Zatrzymanie samochodu ###" << endl;
+    cout << "\n\n### Zatrzymanie samochodu ###\n";
     _state = false;
     cout << "Silnik zostal wylaczony" << endl;
 }
