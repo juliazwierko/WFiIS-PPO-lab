@@ -2,39 +2,19 @@
 
 void Point::Presentation(){
     cout << "### Prezentacja punktu ###\n";
-    if(n == 1){
-        cout << "Nazwa: A\n";
-    }
-    else if(n == 2){
-        cout << "Nazwa B\n";
-    }
-    else if(n == 3){
-        cout << "Nazwa C\n";
-    }
-    else if(n == 4){
-        cout << "Nazwa D\n";
-    }
-    else if(n == 5){
-        cout << "Nazwa E\n";
-    }
-    else if(n == 6){
-        cout << "Nazwa F\n";
-    }
+    cout << "Nazwa: " << _Name << endl;
     cout << "Wspolrzedna X: " << _x << endl;
-    cout << "Wspolrzedna Y: " << _y << endl;
+    cout << "Wspolrzedna Y: " << _y << endl << endl;
 }
 
 void Point::SetName(const char* Name){
-    // _name = Name;
-    //urzylam statycznej zmiennei n dla przepisania name ^_^ 
+    _Name = new char[strlen(Name)+1];
+    strcpy(const_cast<char*>(_Name), Name);     
 }
 
 void Point::SetX(double x){
-    _x = x;
+    this->_x = x;
 }
-
 void Point::SetY(double y){
-    _y = y;
+    this->_y = y;
 }
-
-int Point::n = 0;
