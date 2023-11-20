@@ -7,9 +7,8 @@ void Point::Presentation(){
     cout << "Wspolrzedna Y: " << _y << endl << endl;
 }
 
-void Point::SetName(const char* Name){
-    _Name = new char[strlen(Name)+1];
-    strcpy(const_cast<char*>(_Name), Name);     
+void Point::SetName(string Name){
+    _Name = Name;    
 }
 
 void Point::SetX(double x){
