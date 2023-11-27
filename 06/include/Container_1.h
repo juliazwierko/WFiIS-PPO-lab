@@ -1,22 +1,20 @@
-#ifndef CONTAINER_1_H
-#define CONTAINER_1_H
+#pragma once 
+#include <iostream>
+using namespace std;
 
-class Container_1 {
+class Container_1{
 public:
-    Container_1();
-    ~Container_1();
-    void Add(int value);
+    Container_1() {}
+    ~Container_1() {}
     int Delete();
-    void Clear();
-    void Print() const;
     bool IsEmpty() const;
     bool IsFull() const;
-    int Size() const;
-
+    void Add(int value);
+    void Print() const;
+    int Size();
+    void Clear();
 private:
     static const int capacity = 4;
-    int data[capacity];
-    int size;
+    int tab[capacity];
+    int size = 0;
 };
-
-#endif // CONTAINER_1_H
