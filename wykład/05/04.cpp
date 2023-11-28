@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <locale>
 
 using namespace std;
 
@@ -42,11 +43,14 @@ void Point2::print() const
 		cout << "<bez_nazwy> " << "(x, y) = " << m_x << ", " <<  m_y << endl;
 } 
 /////////////////////////////////////////////////////////////////////////
-inline void fun(Point2 K)
+inline void fun(const Point2 K)
 {}
 /////////////////////////////////////////////////////////////////////////
 inline Point2 fun()
-{	Point2 K;	return K; }
+{	
+    Point2 K;	
+    return K; 
+}
 
 int main()
 {
@@ -61,15 +65,12 @@ int main()
 	cout << "\n-------------- 3 -----------------\n";
 	fun(bPoint2);
 	cout << "\n-------------- 4 -----------------\n";
-        // fun();
-        // -------------- 4 -----------------
-        // Konstruktor domniemany Point2().
-        // Destruktor Point2().
+    cout << "🎅🎅🎅🎅" << endl;
+    Point2 nowy = fun();
+    nowy.print();
+    cout << "🎅🎅🎅🎅" << endl;
 
-        // -------------- 5 -----------------
-        // Destruktor Point2(InnyNizObiektuKopiwanego).
-        // Destruktor Point2(pierwszy).
-	// cout << "\n-------------- 5 -----------------\n";
+	cout << "\n-------------- 5 -----------------\n";
 }
 
 // -------------- 1 -----------------
@@ -85,5 +86,12 @@ int main()
 // Destruktor Point2(InnyNizObiektuKopiwanego).
 
 // -------------- 4 -----------------
+// 🎅🎅🎅🎅
+// Konstruktor domniemany Point2().
+// <bez_nazwy> (x, y) = 0, 0
+// 🎅🎅🎅🎅
+
+// -------------- 5 -----------------
+// Destruktor Point2().
 // Destruktor Point2(InnyNizObiektuKopiwanego).
 // Destruktor Point2(pierwszy).
