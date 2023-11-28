@@ -3,7 +3,7 @@ using namespace std;
 
 /////////////////////////////////////////////////////////
 class Point {
-public:
+public :
 	double *b;
 	double *a;
 
@@ -13,23 +13,21 @@ public:
 /////////////////////////////////////////////////////////
 Point::Point()
 {
-  	b = new double[100000];
+	b = new double[100000];
 	a = new double[100000];
 
 	for(int i = 0; i < 100000; i++)
 	{
-		b[i] = 0;
+		b[i] = 0; 
 		a[i] = 0;
 	}
 }
 /////////////////////////////////////////////////////////
-
 Point::~Point()
 {
-  delete [] b;
-  delete [] a;
+	delete [] b;
+	delete [] a;
 }
-
 /////////////////////////////////////////////////////////
 int main()
 {
@@ -39,4 +37,3 @@ int main()
 		Point a;
 	}
 }
-
