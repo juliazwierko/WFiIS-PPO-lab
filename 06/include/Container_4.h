@@ -1,21 +1,17 @@
-#ifndef CONTAINER_4_H
-#define CONTAINER_4_H
+#pragma once
+#include <iostream>
 #include <vector>
 
-class Container_4 {
+class Container_4{
 public:
-    Container_4();
-    ~Container_4();
-    void Add(int value);
     int Delete();
-    void Clear();
-    void Print() const;
     bool IsEmpty() const;
     bool IsFull() const;
+    void Add(int value);
+    void Print() const;
     int Size() const;
-
+    void Clear();
 private:
-    std::vector<int> data;
+    int capacity = 4;
+    std::vector <int> tab;
 };
-
-#endif // CONTAINER_4_H
