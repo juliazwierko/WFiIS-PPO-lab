@@ -1,78 +1,20 @@
 #pragma once
-#include <iostream>
+#include <iostream> 
 
-class Container_1 {
-public:
-/** @brief Konstruktor
-*
-* inicjalizowanie klasy domyslnymi wartosciami
-*
-* @return nic nie zwraca
-*/
-    Container_1(); 
-
-/** @brief Usuwanie elementu
-*
-* Funkcja ktora usuwa element element
-*
-* @return int
-*/
-    int Delete(); 
-
-/** @brief Sprawdzanie czy tablica jest pusta.
-*
-* Funkcja zwraca informacje czy jest pusta
-*
-* @return bool, nic nie zwraca
-*/
-    bool IsEmpty()const;
-
-
-/** @brief Sprawdzenie czy tablica jest pelna
-*
-* Funkcja zwraca informacje czy jest pelna.
-*
-*
-* @return void, nic nie zwraca
-*/
-    bool IsFull()const;
-
-/** @brief Dodawanie elementu.
-*
-* Funkcja dodaje element.
-*
-* @param[in] i  wartosc dodawanego elementu 
-* @return void, nic nie zwraca
-*/
-    void Add(int i); 
-
-/** @brief Wyswietlanie zawartosci
-*
-* Funkcja wyswietla zawartosc klasy
-*
-* @return void, nic nie zwraca
-*/
-    void Print()const; 
-
-/** @brief Oczysczenie tablicy
-*
-* Funkcja resetuje zawartosc pola size
-*
-* @return void, nic nie zwraca
-*/
+class Container_1{
+public: 
+    Container_1(){}
+    ~Container_1() {}
+    int Delete();
+    bool IsEmpty() const;
+    bool IsFull() const;
+    void Add(int number);
+    void Print() const;
     void Clear();
-
-/** @brief Funkcja zwracajaca rozmiar.
-*
-* Funkcja zwraca prywatne pole klasy
-*
-* @return void, nic nie zwraca
-*/
-    int Size()const;
-
-
+    int Size(); 
 private:
-    static const int capacity = 4;
-    int arr[capacity]; 
-    int size; 
+    int capacity = 4;
+    int tab[4];
+    int size = 0;
 };
+
