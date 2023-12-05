@@ -1,29 +1,33 @@
 #include "Container_1.h"
-
-int Container_1::Delete() {
-    if(IsEmpty()){
-        cout << "#BLAD: Obiekt pusty\n";
-        return -1;
+using namespace std;
+ 
+int Container_1::Delete(){
+    if(!IsEmpty()){
+        
+        return tab[size--];
     }
     else{
-        return tab[--size];
+        cout << "#BLAD: Obiekt pusty\n";
+        return -1;
     }
 }
 
 bool Container_1::IsEmpty() const{
     return size == 0;
 }
+
 bool Container_1::IsFull() const{
     return size == capacity;
 }
 
-void Container_1::Add(int value){
-    if(!IsFull()){
-        tab[size++] = value;
+void Container_1::Add(int number){
+    if(!(IsFull())){
+        tab[size++] = number;
     }
     else{
         cout << "#BLAD: Obiekt zapelniony\n";
     }
+
 }
 
 void Container_1::Print() const{
@@ -34,10 +38,11 @@ void Container_1::Print() const{
     cout << endl;
 }
 
-int Container_1::Size() {
+int Container_1::Size(){
     return size;
 }
 
-void Container_1::Clear() {
+void Container_1::Clear(){
     size = 0;
 }
+
