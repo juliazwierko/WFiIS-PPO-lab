@@ -1,24 +1,17 @@
-#ifndef CONTAINER_2_H
-#define CONTAINER_2_H
-
+#pragma once 
+#include <iostream>
 #include <array>
 
-class Container_2 {
-public:
-    Container_2();
-    ~Container_2();
-    void Add(int value);
+class Container_2{
+public: 
     int Delete();
-    void Clear();
-    void Print() const;
     bool IsEmpty() const;
     bool IsFull() const;
+    void Add(int number);
+    void Print() const;
     int Size() const;
-
+    void Clear();
 private:
-    static const int capacity = 4;
-    std::array<int, capacity> data;
-    int size;
+    int size = 0;
+    std::array <int, 4> tab;
 };
-
-#endif // CONTAINER_2_H
