@@ -1,58 +1,77 @@
 #include "Container_1.h"
+using namespace std;
+ 
+/**
 
-Container_1::Container_1() {
-    size = 0;
-}
+    poprzednnie
+    [0,1,2,3] size--
+    print 0-size: 0,1,2
+    teraz te laby
+    1,2,3
+ */
 
-int Container_1::Delete() {
-    if (IsEmpty()) {
-        std::cout << "#ERROR: Obiekt jest pusty" << std::endl;
-        return -1;
-    } else {
-        int deletedElement = arr[0];
-        size--;
-
-        for(int i = 0; i < size; i++)
-        {
-            arr[i] = arr[i+1];
+/*
+    int Container_1::Delete(){
+    if(!IsEmpty()){
+        int new_tab[4];
+        for(int i = 1; i < size; i++){
+            new_tab[i-1] = tab[i];
         }
-        return deletedElement;
+        
+        for(int i = 0; i < size-1; i++){
+            tab[i] = new_tab[i];
+        }
+
+        return tab[size--];
+    }
+*/
+
+int Container_1::Delete(){
+    if(!IsEmpty()){
+        int old_val = tab[0];
+        for(int i = 1; i < size; i++){
+            tab[i-1] = tab[i];
+        }
+        size--;
+        return old_val;
+    }
+    else{
+        cout << "#BLAD: Obiekt pusty\n";
+        return -1;
     }
 }
 
-bool Container_1::IsEmpty()const {
+bool Container_1::IsEmpty() const{
     return size == 0;
 }
 
-bool Container_1::IsFull()const {
+bool Container_1::IsFull() const{
     return size == capacity;
 }
 
-void Container_1::Add(int i) {
-    if (IsFull()) {
-        std::cout << "#ERROR: Obiekt jest pelny" << std::endl;
-        
-    } else {
-        arr[size] = i;
-        size++;
+void Container_1::Add(int number){
+    if(!(IsFull())){
+        tab[size++] = number;
     }
-}
-
-void Container_1::Print()const {
-    if (IsEmpty()) {
-        std::cout << "#ERROR: Obiekt jest pusty" << std::endl;
-    } else {
-        std::cout << "#Zawartosc obiektu:" << std::endl;
-        for (int i = 0; i < size; i++) {
-            std::cout << arr[i] << (i < size - 1 ? ", " : "\n");
-        }
+    else{
+        cout << "#BLAD: Obiekt zapelniony\n";
     }
+
 }
 
-void Container_1::Clear() {
-    size = 0; 
+void Container_1::Print() const{
+    cout << "#Zawartosc obiektu:\n";
+    for(int i = 0; i < size; i++){
+        cout << tab[i] << ",";
+    }
+    cout << endl;
 }
 
-int Container_1::Size()const {
-    return size; 
+int Container_1::Size(){
+    return size;
 }
+
+void Container_1::Clear(){
+    size = 0;
+}
+
