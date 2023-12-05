@@ -1,57 +1,49 @@
 #include "Container_2.h"
 
-Container_2::Container_2() : size(0) {
-}
-
-int Container_2::Delete() {
-    if (IsEmpty()) {
-        std::cout << "#ERROR: Obiekt jest pusty"  << std::endl;
-        return -1; 
-    } else {
-        
-        int deletedElement = arr[0];
-        size--;
-
-        for(int i = 0; i < size; i++)
-        {
-            arr[i] = arr[i+1];
+int Container_2::Delete(){
+    if(!IsEmpty()){
+        int old_val = tab[0];
+        for(int i = 1; i < size; i++){
+            tab[i-1] = tab[i];
         }
-        return deletedElement;
+        size--;
+        return old_val;
+    }
+    else{
+        std::cout << "#BLAD: Obiekt pusty\n";
+        return -1;
     }
 }
-
-bool Container_2::IsEmpty() const {
+    
+bool Container_2::IsEmpty() const{
     return size == 0;
 }
 
-bool Container_2::IsFull() const {
-    return size == capacity;
+bool Container_2::IsFull() const{
+    return size == 4;
 }
 
-void Container_2::Add(int i) {
-    if (IsFull()) {
-        std::cout << "#ERROR: Obiekt jest pelny" << std::endl;
-    } else {
-        arr[size] = i;
-        size++;
+void Container_2::Add(int number){
+    if(!IsFull()){
+        tab[size++] = number;
+    }
+    else{
+        std::cout << "#BLAD: Obiekt zapelniony\n";
     }
 }
 
-void Container_2::Print() const {
-    if (IsEmpty()) {
-        std::cout << "#ERROR: Obiekt jest pusty" << std::endl;
-    } else {
-        std::cout << "#Zawartosc obiektu:" << std::endl;
-        for (int i = 0; i < size; i++) {
-            std::cout << arr[i] << (i < size - 1 ? ", " : "\n");
-        }
+void Container_2::Print() const{
+    std::cout << "#Zawartosc obiektu:\n";
+    for(int i = 0; i < size; i++){
+        std::cout << tab[i] << ",";
     }
+    std::cout << std::endl;
 }
 
-void Container_2::Clear() {
-    size = 0;
-}
-
-int Container_2::Size() const {
+int Container_2::Size() const{
     return size;
+}
+
+void Container_2::Clear(){
+    size = 0;
 }
