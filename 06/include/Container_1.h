@@ -1,20 +1,20 @@
-#pragma once 
-#include <iostream>
-using namespace std;
+#pragma once
+#include <iostream> 
 
 class Container_1{
-public:
-    Container_1() {}
+public: 
+    Container_1(){}
     ~Container_1() {}
     int Delete();
     bool IsEmpty() const;
     bool IsFull() const;
-    void Add(int value);
+    void Add(int number);
     void Print() const;
-    int Size();
     void Clear();
+    int Size(); 
 private:
-    static const int capacity = 4;
-    int tab[capacity];
+    int capacity = 4;
+    int tab[4];
     int size = 0;
 };
+
