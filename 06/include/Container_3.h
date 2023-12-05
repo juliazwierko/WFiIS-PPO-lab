@@ -1,22 +1,27 @@
-#ifndef CONTAINER_3_H
-#define CONTAINER_3_H
+#pragma once
+#include <iostream> 
 
-class Container_3 {
+class Container_3{
 public:
-    Container_3(int initialSize);
-    ~Container_3();
+    Container_3(int initial_size){
+        capacity = initial_size;
+        size = 0;
+        tab = new int[capacity];
+    }
+    ~Container_3(){
+        delete [] tab;
+        tab = nullptr;
+    }
     void Add(int value);
     int Delete();
-    void Clear();
-    void Print() const;
     bool IsEmpty() const;
     bool IsFull() const;
+    void Print() const;
     int Size() const;
+    void Clear();
 
 private:
-    int* data;
-    int size;
     int capacity;
+    int size;
+    int* tab;
 };
-
-#endif // CONTAINER_3_H
