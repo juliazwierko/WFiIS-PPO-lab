@@ -44,6 +44,7 @@ public:
         //     shop.push_back(item);
         // }
     }
+    // konstruktor przenoszacy
     Shop(Shop &&copy_shop) : shop(std::exchange(copy_shop.shop, {})){
         // for(Product item : copy_shop.shop){
         //     shop.push_back(item);
