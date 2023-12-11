@@ -12,19 +12,15 @@ void Product::SetCard(int num){
 void Shop::Print() const {
     cout << "# Zawartosc/sklad:\n";
     cout << "---\n";
-    if(shop.size()==0){
-        
-    }
-    else{
+    if(!shop.empty())
         for(Product item : shop){
             cout << "typ: " << item._typ << ", ilosc sztuk: " << item._ilosc << std::endl;
         }
-    }
     cout << "---\n";
 }
 
 void Shop::Remove() {
-    if(shop.size()==0){
+    if(shop.empty()){
         cout << "BLAD: Pusto !\n";
         cout << "---\n";
         return;
