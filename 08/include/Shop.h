@@ -1,6 +1,7 @@
 #pragma once 
 #include <vector>
 #include <iostream>
+#include <utility>
 
 using namespace std;
 
@@ -19,9 +20,7 @@ private:
 
 class Shop{
 public:
-    Shop(){
-
-    }
+    Shop() = default;
     Shop(Product product){
         shop.push_back(product);
     }
@@ -29,22 +28,27 @@ public:
         shop.push_back(product1);
         shop.push_back(product2);
     }
-    Shop(int size, Product* t[3]){
+    Shop(int size, Product** t){
         for(int i = 0; i < size; i++){
         shop.push_back(*t[i]);
         }   
     }
-    //konstruktor kopiujacy
-    Shop(const vector <Product>& dane){
+    Shop(vector <Product> dane){
         for(Product range : dane){
             shop.push_back(range);
         }
     }
-    //konstruktor kopiujacy
-    Shop(const Shop &copy_shop){
-        for(int i = 0; i < copy_shop.shop.size(); i++){
-            shop.push_back(copy_shop.shop[i]);
-        }
+    // konstruktor kopiujacy
+    Shop(const Shop &copy_shop) : shop(copy_shop.shop){
+        // for(Product item : copy_shop.shop){
+        //     shop.push_back(item);
+        // }
+    }
+    Shop(Shop &&copy_shop) : shop(std::exchange(copy_shop.shop, {})){
+        // for(Product item : copy_shop.shop){
+        //     shop.push_back(item);
+        // }
+        // copy_shop.Clear();
     }
     
     void Clear();
