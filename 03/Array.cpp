@@ -20,7 +20,6 @@ void CreateSequence(int* tab, int size){
         for(int i=2; i<size; i++){
             tab[i] = temp * tab[i-1];
             temp++;
-            // sprawdzanie dla siebie:
             // cout << tab[i] << endl;
         }
     }
