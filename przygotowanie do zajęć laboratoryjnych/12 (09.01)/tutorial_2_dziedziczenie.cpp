@@ -29,7 +29,7 @@ private:
 
 int main(){
     Person person {"Julia", 18};
-    person.print(); // Name: Tom Age: 38
+    person.print(); 
 
     Employee employee {"Pawel", 23, "Nokia"};
     employee.print();
