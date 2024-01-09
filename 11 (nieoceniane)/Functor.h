@@ -1,36 +1,37 @@
-#pragma once
+#pragma once 
 #include <iostream>
-#include <string>
+#include <string> 
 using namespace std;
 
-class Functor {
+class Functor{
 public:
-    Functor() : m_less(0), m_equal(0), m_greater(0) {}
+    Functor() : _mniejsze(0), _rowne(0), _wieksze(0) {}
 
-    bool operator()(int a, int b) {
-        if (a < b) {
-            m_less++;
+    bool operator() (int num1, int num2){
+        if (num1 < num2){
+            _mniejsze++;
             return true;
         }
-        else if (a == b) {
-            m_equal++;
+        else if(num1 == num2){
+            _rowne++;
             return false;
         }
-        else {
-            m_greater++;
+        else{
+            _wieksze++;
             return false;
         }
     }
 
-    void wypiszStatystyki() {
-        cout << "Liczba porownan:" << endl;
-        cout << "'a' mniejsze 'b': " << m_less << endl;
-        cout << "'a' rowne 'b': " << m_equal << endl;
-        cout << "'a' wieksze 'b': " << m_greater << endl;
+    void wypiszStatystyki(){
+        cout << "Liczba porownan:\n";
+        cout << "'a' mniejsze 'b': " << _mniejsze << endl;
+        cout << "'a' rowne 'b': " << _rowne << endl;
+        cout << "'a' wieksze 'b': " << _wieksze << endl;
     }
+
 
 private:
-    int m_less;
-    int m_equal;
-    int m_greater;
+    int _mniejsze;
+    int _rowne;
+    int _wieksze;
 };
